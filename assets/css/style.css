@@ -191,3 +191,7 @@ body {
 .text-success {
 	color: #44a448 !important;
 }
+.product-loading {
+	--bs-spinner-width: 5rem;
+	--bs-spinner-height: 5rem;
+}
