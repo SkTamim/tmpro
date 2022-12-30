@@ -8,7 +8,7 @@
 :root {
 	--color-primary: #ff5757;
 	--color-secondary: #ffecdd;
-	--color-black: #5e5e5e;
+	--color-black: #515151;
 }
 body {
 	background-color: var(--color-secondary);
@@ -194,4 +194,13 @@ body {
 .product-loading {
 	--bs-spinner-width: 5rem;
 	--bs-spinner-height: 5rem;
+}
+.product-details-loading {
+	--bs-spinner-width: 10rem;
+	--bs-spinner-height: 10rem;
+}
+#products-details-loading-box {
+	height: 76vh;
+	display: grid;
+	place-items: center;
 }

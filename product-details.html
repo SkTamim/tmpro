@@ -45,7 +45,7 @@
 
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active fw-500" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active fw-500" aria-current="page" href="index.html">Home</a>
                 </li>
             </ul>
         </div>
@@ -63,96 +63,22 @@
     </nav>
 
     <!-- PRODUCT DETAILS START -->
-    <section class="product-details-section container-lg py-4">
+    <div class="container-lg" id="products-details-loading-box">
         <div class="row">
-            <div class="col-md-5">
-                <div class="splide" id="main-slider">
-                    <div class="splide__track">
-                        <ul class="splide__list">
-                            <li class="splide__slide">
-                                <img src="assets/images/bag-1-1.png" alt="Bag">
-                            </li>
-                            <li class="splide__slide">
-                                <img src="assets/images/bag-1-2.png" alt="Bag">
-                            </li>
-                            <li class="splide__slide">
-                                <img src="assets/images/bag-1-3.png" alt="Bag">
-                            </li>
-                            <li class="splide__slide">
-                                <img src="assets/images/bag-1-4.png" alt="Bag">
-                            </li>
-                            <li class="splide__slide">
-                                <img src="assets/images/bag-1-5.png" alt="Bag">
-                            </li>
-                        </ul>
-                    </div>
+            <div class="col-12 text-center pt-4 pb-5">
+                <div class="spinner-border product-details-loading" role="status">
+                    <span class="visually-hidden">Loading...</span>
                 </div>
-                <div class="splide mt-3" id="thumbnail-slider">
-                    <div class="splide__track">
-                        <ul class="splide__list">
-                            <li class="splide__slide">
-                                <img src="assets/images/bag-1-1.png" alt="Bag">
-                            </li>
-                            <li class="splide__slide">
-                                <img src="assets/images/bag-1-2.png" alt="Bag">
-                            </li>
-                            <li class="splide__slide">
-                                <img src="assets/images/bag-1-3.png" alt="Bag">
-                            </li>
-                            <li class="splide__slide">
-                                <img src="assets/images/bag-1-4.png" alt="Bag">
-                            </li>
-                            <li class="splide__slide">
-                                <img src="assets/images/bag-1-5.png" alt="Bag">
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-7 pt-md-3 pt-4">
-                <h4 class="color-back">Activiti standard size college bag (Pink-Grey)</h4>
-
-                <ul style="list-style: circle;">
-                    <li class="text-muted fw-500 fz-18">
-                        Three different compartments
-                    </li>
-                    <li class="text-muted fw-500 fz-18">
-                        One safe compartment for laptop
-                    </li>
-                    <li class="text-muted fw-500 fz-18">
-                        Water bottle holder on both sides
-                    </li>
-                    <li class="text-muted fw-500 fz-18">
-                        High quality fabrics
-                    </li>
-                    <li class="text-muted fw-500 fz-18">
-                        Number 8 unbreakable zipper
-                    </li>
-                    <li class="text-muted fw-500 fz-18">
-                        Color - Pink and Grey
-                    </li>
-                    <li class="text-muted fw-500 fz-18">
-                        Availability: <span class="text-success">In Stock</span>
-                    </li>
-                </ul>
-                <hr>
-                <div class="product-details-price mb-3">
-                    <p class="fw-500 color-back">Price - </p>&nbsp;
-                    <p class="main-price">₹279</p>
-                    &nbsp;
-                    <p class="old-price">₹450</p>
-                    &nbsp;
-                    <p>38% off</p>
-                </div>
-                <button class="btn main-btn buy-btn btn-lg" data-bs-toggle="modal" data-bs-target="#checkPinModal">Buy Now</button>
             </div>
         </div>
+    </div>
+    <section class="product-details-section container-lg py-4" id="product-details-section">
+
     </section>
     <!-- PRODUCT DETAILS END-->
 
-    <!-- CHECK PIN CODE MODAL START -->
 
-    <!-- CHECK PIN CODE MODAL END -->
+    <!-- CHECK PIN CODE MODAL START -->
     <div class="modal fade" id="checkPinModal" tabindex="-1" aria-labelledby="checkPinModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -179,6 +105,8 @@
             </div>
         </div>
     </div>
+    <!-- CHECK PIN CODE MODAL END -->
+
     <!-- BUY NOW MODAL START -->
     <div class="modal fade" id="orderModel" tabindex="-1" aria-labelledby="orderModelLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -237,39 +165,186 @@
     <!-- VALIDATE OTP MODAL END -->
 
 
-    <!-- SPLIDER JS FILE -->
-    <script src="assets/vendor/splider/splide.js"></script>
-    <script>
-        var main = new Splide('#main-slider', {
-            heightRatio: 1,
-            pagination: true,
-            arrows: false,
-            cover: true,
-            autoplay: true,
-            rewind: true,
-            rewindByDrag: true
-        });
-
-        var thumbnails = new Splide('#thumbnail-slider', {
-            rewind: true,
-            fixedWidth: 100,
-            fixedHeight: 100,
-            isNavigation: true,
-            gap: 10,
-            pagination: false,
-            cover: true,
-        });
-
-        main.sync(thumbnails);
-        main.mount();
-        thumbnails.mount();
-    </script>
-
     <!-- BOOTSTRAP JS FILE -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
     <!-- CUSTOM JS FILE -->
     <script src="assets/js/main.js"></script>
+
+    <!-- SPLIDER JS FILE -->
+    <script src="assets/vendor/splider/splide.js"></script>
+    <script>
+        function initialSplider(page) {
+            var main = new Splide('#main-slider', {
+                heightRatio: 1,
+                pagination: page,
+                arrows: false,
+                cover: true,
+                autoplay: true,
+                rewind: true,
+                rewindByDrag: true
+            });
+
+            var thumbnails = new Splide('#thumbnail-slider', {
+                rewind: true,
+                fixedWidth: 100,
+                fixedHeight: 100,
+                isNavigation: true,
+                gap: 10,
+                pagination: false,
+                cover: true,
+            });
+
+            main.sync(thumbnails);
+            main.mount();
+            thumbnails.mount();
+        }
+    </script>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyBoZ23MknOhIl-giwPBfDJxccT1Csx1ev0",
+            authDomain: "tm-pro-01.firebaseapp.com",
+            projectId: "tm-pro-01",
+            storageBucket: "tm-pro-01.appspot.com",
+            messagingSenderId: "866484750921",
+            appId: "1:866484750921:web:f61e60d328f38ca1020d98",
+            measurementId: "G-MVBN557YKG"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        // Firestore =======================
+        import { doc, getDoc, getFirestore, collection, getDocs, onSnapshot } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+
+        const database = getFirestore()
+
+        let isLoading = true; // it wil be true
+
+        let productId = window.location;
+        productId = productId.hash.slice(1)
+
+        const getData = async (documentId) => {
+            if (documentId == '' || documentId.length < 4 || documentId == 'bag-0') {
+                documentId = 'bag-1'
+            }
+            const docRef = doc(database, "bags/category-1/inner", documentId);
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                showProductDetails(docSnap.data())
+            } else {
+                console.log("No such document!");
+            }
+
+        };
+        getData(productId)
+
+
+
+        const productsDetailsArea = document.getElementById('product-details-section')
+        function showProductDetails(details) {
+
+            // Image sliders
+            let sliders;
+            details.images.forEach(img => {
+                sliders += `
+                <li class="splide__slide">
+                      <img src="${img}" alt="Bag">
+                </li>
+                `
+            });
+            sliders = sliders.replace('undefined', '')
+
+            // Features
+            let features;
+            details.features.forEach(feature => {
+                features += `
+                <li class="text-muted fw-500 fz-18">
+                     ${feature}
+                </li>
+                `
+            });
+            features = features.replace('undefined', '')
+
+
+            productsDetailsArea.innerHTML = `
+                <div class="row">
+                <div class="col-md-5">
+                    <div class="splide" id="main-slider">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                             ${sliders}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="splide mt-3" id="thumbnail-slider">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                                ${sliders}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7 pt-md-3 pt-4">
+                    <h4 class="color-back">${details.name}</h4>
+
+                    <ul style="list-style: circle;">
+                        ${features}
+                    </ul>
+                    <ul style="list-style: circle;">
+                        <li class="color-back fw-500 fz-18">
+                            Color - ${details.color}
+                        </li>
+                        <li class="color-back fw-500 fz-18">
+                            Availability: <span class="text-success">${details.availability}</span>
+                        </li>
+                    </ul>
+
+                    <hr>
+                    <div class="product-details-price mb-3">
+                        <p class="fw-500 color-back">Price - </p>&nbsp;
+                        <p class="main-price">₹${details.price}</p>
+                        &nbsp;
+                        <p class="old-price">₹${details['max-price']}</p>
+                        &nbsp;
+                        <p>${details.off}% off</p>
+                    </div>
+                    <button class="btn main-btn buy-btn btn-lg" data-bs-toggle="modal" data-bs-target="#checkPinModal">Buy Now</button>
+                </div>
+            </div>
+            `
+
+
+            isLoading = false;
+            detailsLoading()
+            initialSplider(false)
+            initialSplider(true)
+        }
+
+        function detailsLoading() {
+            const productDetailsBox = document.getElementById('products-details-loading-box')
+            if (isLoading) {
+                productDetailsBox.style.display = 'grid'
+                productsDetailsArea.style.display = 'none'
+            } else {
+                productDetailsBox.style.display = 'none'
+                productsDetailsArea.style.display = 'block'
+            }
+        }
+        detailsLoading()
+    </script>
+
 </body>
 
 </html>
