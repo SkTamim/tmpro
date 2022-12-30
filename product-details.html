@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TM Pro Store</title>
+
+    <!-- BOOTSTRAP CSS FILE -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <!-- BOOTSTRAP ICON CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+    <!-- SPLIDER CSS FILE -->
+    <link rel="stylesheet" href="assets/vendor/splider/splide.min.css">
+
+    <!-- CUSTOM CSS FILE  -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!------------------------------------ 
+                NAVBAR START
+    ---------------------------------------->
+    <nav class="navbar navbar-expand-lg navbar-dark main-nav">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">TM Pro</a>
+            <button class="btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+        </div>
+    </nav>
+
+    <!-- NAVAR CANVAS -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active fw-500" aria-current="page" href="#">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!------------------------------------ 
+                NAVBAR END
+    ---------------------------------------->
+
+    <nav aria-label="breadcrumb" class="container-lg mt-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Product details</li>
+        </ol>
+    </nav>
+
+    <!-- PRODUCT DETAILS START -->
+    <section class="product-details-section container-lg py-4">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="splide" id="main-slider">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide">
+                                <img src="assets/images/bag-1-1.png" alt="Bag">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="assets/images/bag-1-2.png" alt="Bag">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="assets/images/bag-1-3.png" alt="Bag">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="assets/images/bag-1-4.png" alt="Bag">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="assets/images/bag-1-5.png" alt="Bag">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="splide mt-3" id="thumbnail-slider">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide">
+                                <img src="assets/images/bag-1-1.png" alt="Bag">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="assets/images/bag-1-2.png" alt="Bag">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="assets/images/bag-1-3.png" alt="Bag">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="assets/images/bag-1-4.png" alt="Bag">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="assets/images/bag-1-5.png" alt="Bag">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 pt-md-3 pt-4">
+                <h4 class="color-back">Activiti standard size college bag (Pink-Grey)</h4>
+
+                <ul style="list-style: circle;">
+                    <li class="text-muted fw-500 fz-18">
+                        Three different compartments
+                    </li>
+                    <li class="text-muted fw-500 fz-18">
+                        One safe compartment for laptop
+                    </li>
+                    <li class="text-muted fw-500 fz-18">
+                        Water bottle holder on both sides
+                    </li>
+                    <li class="text-muted fw-500 fz-18">
+                        High quality fabrics
+                    </li>
+                    <li class="text-muted fw-500 fz-18">
+                        Number 8 unbreakable zipper
+                    </li>
+                    <li class="text-muted fw-500 fz-18">
+                        Color - Pink and Grey
+                    </li>
+                    <li class="text-muted fw-500 fz-18">
+                        Availability: <span class="text-success">In Stock</span>
+                    </li>
+                </ul>
+                <hr>
+                <div class="product-details-price mb-3">
+                    <p class="fw-500 color-back">Price - </p>&nbsp;
+                    <p class="main-price">₹279</p>
+                    &nbsp;
+                    <p class="old-price">₹450</p>
+                    &nbsp;
+                    <p>38% off</p>
+                </div>
+                <button class="btn main-btn buy-btn btn-lg" data-bs-toggle="modal" data-bs-target="#checkPinModal">Buy Now</button>
+            </div>
+        </div>
+    </section>
+    <!-- PRODUCT DETAILS END-->
+
+    <!-- CHECK PIN CODE MODAL START -->
+
+    <!-- CHECK PIN CODE MODAL END -->
+    <div class="modal fade" id="checkPinModal" tabindex="-1" aria-labelledby="checkPinModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" id="closePinModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="pin-form" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="pinCode" class="form-label">Enter your pin/zip code of your area <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="pinCode" required>
+                            <div class="invalid-feedback">
+                                Sorry, We are not availabe in this pin. <br>
+                                if you have any query please message on whaatsapp
+                            </div>
+                            <div class="valid-feedback">
+                                Congratulations, We are available on this pin code. Click continue to buy.
+                            </div>
+                        </div>
+                        <button class="btn main-btn w-100" id="check-pin">Check availability</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- BUY NOW MODAL START -->
+    <div class="modal fade" id="orderModel" tabindex="-1" aria-labelledby="orderModelLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" id="closeOrderModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="needs-validation" novalidate id="buy-form">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Enter your name <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="name" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid name.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="mobile" class="form-label">Enter mobile number <span class="text-danger">*</span></label>
+                            <input type="tel" id="mobile" name="mobile" maxlength="10" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid mobile number.
+                            </div>
+                        </div>
+                        <button class="btn main-btn w-100" id="send-otp">Send OTP</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- BUY NOW MODAL END -->
+
+    <!-- VALIDATE OTP MODAL START -->
+    <div class="modal fade" id="otp-modal" tabindex="-1" aria-labelledby="otp-modal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="needs-validation" novalidate id="otp-form">
+                        <div class="mb-3">
+                            <label for="otp" class="form-label">Please enter the OTP sent on your number <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="otp" name="otp" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid OTP.
+                            </div>
+                        </div>
+                        <button class="btn main-btn w-100" id="validate-otp">Veryfy and Order</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- VALIDATE OTP MODAL END -->
+
+
+    <!-- SPLIDER JS FILE -->
+    <script src="assets/vendor/splider/splide.js"></script>
+    <script>
+        var main = new Splide('#main-slider', {
+            heightRatio: 1,
+            pagination: true,
+            arrows: false,
+            cover: true,
+            autoplay: true,
+            rewind: true,
+            rewindByDrag: true
+        });
+
+        var thumbnails = new Splide('#thumbnail-slider', {
+            rewind: true,
+            fixedWidth: 100,
+            fixedHeight: 100,
+            isNavigation: true,
+            gap: 10,
+            pagination: false,
+            cover: true,
+        });
+
+        main.sync(thumbnails);
+        main.mount();
+        thumbnails.mount();
+    </script>
+
+    <!-- BOOTSTRAP JS FILE -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <!-- CUSTOM JS FILE -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
