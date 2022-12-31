@@ -1,31 +1,9 @@
-// // Example starter JavaScript for disabling form submissions if there are invalid fields
-// (() => {
-// 	"use strict";
-
-// 	// Fetch all the forms we want to apply custom Bootstrap validation styles to
-// 	const forms = document.querySelectorAll(".needs-validation");
-
-// 	// Loop over them and prevent submission
-// 	Array.from(forms).forEach((form) => {
-// 		form.addEventListener(
-// 			"submit",
-// 			(event) => {
-// 				if (!form.checkValidity()) {
-// 					event.preventDefault();
-// 					event.stopPropagation();
-// 				}
-// 				form.classList.add("was-validated");
-// 			},
-// 			false
-// 		);
-// 	});
-// })();
-
 // MOBILE NUMBER VALIDATION
 const mobile = document.getElementById("mobile");
 function validateNumber() {
 	let numberIsValid;
 	let condition = mobile.value.search(/^-?\d+\.?\d*$/);
+	// let condition = true
 	if (mobile.value.trim() === "" || condition === -1) {
 		mobile.classList.add("is-invalid");
 		numberIsValid = false;
@@ -49,39 +27,6 @@ function validateName() {
 	}
 	return nameIsValid;
 }
-
-// SUBMIT HANDLER
-let formSumit = false;
-const buyForm = document.getElementById("buy-form");
-buyForm.addEventListener("submit", (event) => {
-	event.preventDefault();
-	formSumit = true;
-	let nameIsValid = validateName();
-	let numberIsValid = validateNumber();
-	if (nameIsValid && numberIsValid) {
-		console.log("submitted");
-		const otpModal = new bootstrap.Modal("#otp-modal");
-		otpModal.show();
-		const closeOrderModal = document.getElementById("closeOrderModal");
-		closeOrderModal.click();
-	} else {
-		console.error("not submitted");
-	}
-});
-
-UserName.addEventListener("keydown", () => {
-	formSumit ? validateName() : null;
-});
-mobile.addEventListener("keydown", () => {
-	formSumit ? validateNumber() : null;
-});
-
-UserName.addEventListener("change", () => {
-	formSumit ? validateName() : null;
-});
-mobile.addEventListener("change", () => {
-	formSumit ? validateNumber() : null;
-});
 
 // OTP VALIDATION AND SUBMIT
 const otp = document.getElementById("otp");

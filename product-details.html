@@ -92,7 +92,7 @@
                             <input type="text" class="form-control" id="pinCode" required>
                             <div class="invalid-feedback">
                                 Sorry, We are not availabe in this pin. <br>
-                                if you have any query please message on whaatsapp
+                                if you have any query please <a href="https://wa.me/15551234567?text=Hi,%20I%20have%20a%20query%20regarding%20your%20bag%20store!">message on whaatsapp</a>
                             </div>
                             <div class="valid-feedback">
                                 Congratulations, We are available on this pin code. Click continue to buy.
@@ -130,6 +130,10 @@
                             <div class="invalid-feedback">
                                 Please enter a valid mobile number.
                             </div>
+                        </div>
+                        <div id="reCapcha-box" class="d-flex justify-content-center my-2"></div>
+                        <div class="invalid-feedback fw-500 text-center mb-2 fz-18" id="reCapcha-feedback">
+                            Please solve the capcha.
                         </div>
                         <button class="btn main-btn w-100" id="send-otp">Send OTP</button>
                     </form>
@@ -310,6 +314,7 @@
                             Availability: <span class="text-success">${details.availability}</span>
                         </li>
                     </ul>
+                    <p>If you have any queries or issues, feel free to message me on WhatsApp. <br> <a href="https://wa.me/15551234567?text=Hi,%20I%20have%20a%20query%20regarding%20your%20bag%20store!">Click here to send message</a></p>
 
                     <hr>
                     <div class="product-details-price mb-3">
@@ -345,6 +350,102 @@
         detailsLoading()
     </script>
 
+
+    <script type="module">
+        // Firebase authantication ============
+        import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+
+        const auth = getAuth();
+        auth.languageCode = 'it';
+
+        // INITIALIZED RE CAPCHA
+        let reCapchaIsSolved = false;
+        window.recaptchaVerifier = new RecaptchaVerifier('reCapcha-box', {
+            'size': 'normal',
+            'callback': (response) => {
+                // reCAPTCHA solved, allow signInWithPhoneNumber.
+                reCapchaIsSolved = true;
+                validateCapcha()
+            },
+            'expired-callback': () => {
+                // Response expired. Ask user to solve reCAPTCHA again.
+                validateCapcha()
+            }
+        }, auth);
+
+        recaptchaVerifier.render().then((widgetId) => {
+            window.recaptchaWidgetId = widgetId;
+        });
+
+        const capchaFeedback = document.getElementById('reCapcha-feedback');
+        function validateCapcha() {
+            if (reCapchaIsSolved) {
+                capchaFeedback.style.display = 'none'
+            } else {
+                capchaFeedback.style.display = 'block'
+            }
+        }
+
+        // SUBMIT HANDLER FOR BUY FORM AND CAPCHA VALIDATION
+        let formSumit = false;
+        const buyForm = document.getElementById("buy-form");
+        buyForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            formSumit = true;
+            let nameIsValid = validateName();
+            let numberIsValid = validateNumber();
+            if (nameIsValid && numberIsValid && reCapchaIsSolved) {
+                const appVerifier = window.recaptchaVerifier;
+                const phoneNumber = mobile.value;
+                console.log(phoneNumber.length != 10);
+                console.log(phoneNumber.length);
+                if (phoneNumber.length != 10) {
+                    mobile.classList.add("is-invalid");
+                    numberIsValid = false;
+                } else {
+                    mobile.classList.remove("is-invalid");
+                    numberIsValid = true;
+
+                    console.log("submitted BUY FORM");
+                    const otpModal = new bootstrap.Modal("#otp-modal");
+                    otpModal.show();
+                    const closeOrderModal = document.getElementById("closeOrderModal");
+                    closeOrderModal.click();
+
+                    // SEND OTP TO THE USER
+                    const finalPhoneNumber = `+91${phoneNumber}`
+                    console.log(finalPhoneNumber);
+                    signInWithPhoneNumber(auth, finalPhoneNumber, appVerifier)
+                        .then((confirmationResult) => {
+                            // SMS sent. Prompt user to type the code from the message, then sign the
+                            // user in with confirmationResult.confirm(code).
+                            window.confirmationResult = confirmationResult;
+                        }).catch((error) => {
+                            // Error; SMS not sent
+                            console.log(error);
+                        });
+                }
+            } else {
+                console.error("not submitted");
+                validateCapcha()
+            }
+        });
+
+        UserName.addEventListener("keydown", () => {
+            formSumit ? validateName() : null;
+        });
+        mobile.addEventListener("keydown", () => {
+            formSumit ? validateNumber() : null;
+        });
+
+        UserName.addEventListener("change", () => {
+            formSumit ? validateName() : null;
+        });
+        mobile.addEventListener("change", () => {
+            formSumit ? validateNumber() : null;
+        });
+
+    </script>
 </body>
 
 </html>
