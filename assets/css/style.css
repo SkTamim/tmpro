@@ -157,6 +157,12 @@ body {
 }
 /* PRODUCT DETAILS PAGE END */
 
+/* ORDER PLACED MODAL */
+.order-check {
+	color: #44a448;
+	font-size: 90px;
+}
+
 /* UTILITIES */
 .color-second {
 	color: var(--color-secondary);
