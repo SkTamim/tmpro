@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TM Pro Store</title>
 
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo.png">
+
     <!-- BOOTSTRAP CSS FILE -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
@@ -44,8 +48,13 @@
         <div class="offcanvas-body">
 
             <ul class="navbar-nav">
+                <li class="nav-item mb-2">
+                    <a class="nav-link active btn w-100 fw-500" aria-current="page" href="index.html">Home</a>
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link active fw-500" aria-current="page" href="index.html">Home</a>
+                    <a class="nav-link btn green-btn fw-500" href="ttps://wa.me/15551234567?text=Hi,%20I%20have%20a%20query%20regarding%20your%20bag%20store!">Messege me on whaatsapp
+                        <i class="bi bi-whatsapp ms-1"></i>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -78,8 +87,37 @@
     <!-- PRODUCT DETAILS END-->
 
 
+    <!-------------------------
+         FOOTER START 
+    ------------------------------>
+    <footer class="main-footer container-fluid py-2">
+        <div class="row g-2">
+            <div class="col-sm-6 text-sm-start text-center">
+                <h5>Contact us</h5>
+                <div class="socials">
+                    <a href="https://wa.me/15551234567?text=Hi">
+                        <i class="bi bi-whatsapp"></i>
+                    </a>
+                    <a href="https://www.facebook.com/SkTamim.0001">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="tel:8918263627">
+                        <i class="bi bi-telephone-fill"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-6 align-self-end text-sm-end text-center">
+                <p class="m-0"> &copy; <a href="https://tamim.pro">tamim.pro</a> all rights reserved. </p>
+            </div>
+        </div>
+    </footer>
+    <!-------------------------
+         FOOTER END 
+    ------------------------------>
+
+
     <!-- CHECK PIN CODE MODAL START -->
-    <div class="modal fade" id="checkPinModal" tabindex="-1" aria-labelledby="checkPinModalLabel" aria-hidden="true">
+    <div class="modal fade" id="checkPinModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="checkPinModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header border-0">
@@ -108,7 +146,7 @@
     <!-- CHECK PIN CODE MODAL END -->
 
     <!-- BUY NOW MODAL START -->
-    <div class="modal fade" id="orderModel" tabindex="-1" aria-labelledby="orderModelLabel" aria-hidden="true">
+    <div class="modal fade" id="orderModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="orderModelLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header border-0">
@@ -145,11 +183,11 @@
     <!-- BUY NOW MODAL END -->
 
     <!-- VALIDATE OTP MODAL START -->
-    <div class="modal fade" id="otp-modal" tabindex="-1" aria-labelledby="otp-modal" aria-hidden="true">
+    <div class="modal fade" id="otp-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="otp-modal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header border-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="otp-modal-close"></button>
                 </div>
                 <div class="modal-body">
                     <form class="needs-validation" novalidate id="otp-form">
@@ -167,6 +205,31 @@
         </div>
     </div>
     <!-- VALIDATE OTP MODAL END -->
+
+
+    <!-- ORDER PLACED MODAL START -->
+    <div class="modal fade" id="order-placed-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="order-placed-modal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <i class="bi bi-check-circle-fill order-check"></i>
+                    <h5>Congratulations</h5>
+                    <h6>Your order is successfully placed. <br> We will call you as soon as possible. </h6>
+                    <p>
+                        If you want to track your order or have any query, please message us on WhatsApp. or you can call us on this number.
+                    </p>
+                    <div>
+                        <a target="_blank" href="https://wa.me/15551234567?text=Hi,%20I%20have%20a%20query%20regarding%20your%20bag%20store!" class=" btn green-btn">Message us <i class="bi bi-whatsapp ms-1"></i></a>
+                        <a target="_blank" href="tel:+918918263627" class="btn main-btn">Call us <i class="bi bi-telephone-fill ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ORDER PLACED MODAL END -->
 
 
     <!-- BOOTSTRAP JS FILE -->
@@ -229,7 +292,7 @@
         const analytics = getAnalytics(app);
 
         // Firestore =======================
-        import { doc, getDoc, getFirestore, collection, getDocs, onSnapshot } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+        import { doc, getDoc, getFirestore, collection, getDocs, onSnapshot, setDoc, Timestamp, addDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
         const database = getFirestore()
 
@@ -314,6 +377,14 @@
                             Availability: <span class="text-success">${details.availability}</span>
                         </li>
                     </ul>
+                    <ul style="list-style: circle;">
+                        <li class="color-back fw-500 fz-18">
+                            Delivery charge - ₹${details.deliveryCharge} <del class="text-muted" style="font-size:15px;">₹40</del> <sapn class="fw-normal" style="font-size:15px;">(New Year Offer)</sapn>
+                        </li>
+                        <li class="color-back fw-500 fz-18">
+                            Delivery mode - Cash on Delivery
+                        </li>
+                    </ul>
                     <p>If you have any queries or issues, feel free to message me on WhatsApp. <br> <a href="https://wa.me/15551234567?text=Hi,%20I%20have%20a%20query%20regarding%20your%20bag%20store!">Click here to send message</a></p>
 
                     <hr>
@@ -348,15 +419,12 @@
             }
         }
         detailsLoading()
-    </script>
 
-
-    <script type="module">
         // Firebase authantication ============
         import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
         const auth = getAuth();
-        auth.languageCode = 'it';
+        auth.languageCode = 'en';
 
         // INITIALIZED RE CAPCHA
         let reCapchaIsSolved = false;
@@ -397,8 +465,7 @@
             if (nameIsValid && numberIsValid && reCapchaIsSolved) {
                 const appVerifier = window.recaptchaVerifier;
                 const phoneNumber = mobile.value;
-                console.log(phoneNumber.length != 10);
-                console.log(phoneNumber.length);
+
                 if (phoneNumber.length != 10) {
                     mobile.classList.add("is-invalid");
                     numberIsValid = false;
@@ -414,19 +481,50 @@
 
                     // SEND OTP TO THE USER
                     const finalPhoneNumber = `+91${phoneNumber}`
-                    console.log(finalPhoneNumber);
                     signInWithPhoneNumber(auth, finalPhoneNumber, appVerifier)
                         .then((confirmationResult) => {
                             // SMS sent. Prompt user to type the code from the message, then sign the
                             // user in with confirmationResult.confirm(code).
                             window.confirmationResult = confirmationResult;
+
+                            // VALIDATE OTP FUNCTIONALITY
+                            let otpFormSumit = false;
+                            const validateOtpBtn = document.getElementById("validate-otp");
+                            const validateOtpForm = document.getElementById("otp-form");
+                            validateOtpForm.addEventListener("submit", (event) => {
+                                event.preventDefault();
+                                otpFormSumit = true;
+                                let otpIsValid = validateOtp();
+                                if (otpIsValid) {
+                                    console.log("order placed");
+
+                                    verifyOtp(confirmationResult)
+                                } else {
+                                    console.error("Order not placed");
+                                }
+                            });
+
+                            otp.addEventListener("keydown", () => {
+                                otpFormSumit ? validateOtp() : null;
+                            });
+                            otp.addEventListener("change", () => {
+                                otpFormSumit ? validateOtp() : null;
+                            });
+                            otp.addEventListener("paste", () => {
+                                validateOtp();
+                                setTimeout(() => {
+                                    validateOtp();
+                                }, 100);
+                            });
+
+
                         }).catch((error) => {
                             // Error; SMS not sent
                             console.log(error);
                         });
                 }
             } else {
-                console.error("not submitted");
+                console.log("not submitted buy form");
                 validateCapcha()
             }
         });
@@ -444,6 +542,40 @@
         mobile.addEventListener("change", () => {
             formSumit ? validateNumber() : null;
         });
+
+
+        // VERIFY OTP FUNCTION 
+        function verifyOtp(confirmationResult) {
+            const code = otp.value;
+            confirmationResult.confirm(code).then((result) => {
+                // User signed in successfully.
+                const user = result.user;
+                const otpModalClose = document.getElementById('otp-modal-close');
+                otpModalClose.click();
+
+                addOrder(user.uid);
+                const orderPlacedModal = new bootstrap.Modal("#order-placed-modal");
+                orderPlacedModal.show();
+
+            }).catch((error) => {
+                // User couldn't sign in (bad verification code?)
+                console.log(error);
+                otp.classList.add("is-invalid");
+            });
+        }
+
+        // ADD ORDER TO DATABASE
+        async function addOrder(userId) {
+            await addDoc(collection(database, "orders"), {
+                name: UserName.value,
+                mobile: mobile.value,
+                orderedItem: location.href,
+                pincode: pinCode.value,
+                userId: userId,
+                orderPlacedAt: Timestamp.now()
+            });
+            console.log('done');
+        }
 
     </script>
 </body>

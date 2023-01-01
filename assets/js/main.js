@@ -42,33 +42,6 @@ function validateOtp() {
 	return otpIsValid;
 }
 
-let otpFormSumit = false;
-const validateOtpBtn = document.getElementById("validate-otp");
-const validateOtpForm = document.getElementById("otp-form");
-validateOtpForm.addEventListener("submit", (event) => {
-	event.preventDefault();
-	otpFormSumit = true;
-	let otpIsValid = validateOtp();
-	if (otpIsValid) {
-		console.log("order placed");
-	} else {
-		console.error("Order not placed");
-	}
-});
-
-otp.addEventListener("keydown", () => {
-	otpFormSumit ? validateOtp() : null;
-});
-otp.addEventListener("change", () => {
-	otpFormSumit ? validateOtp() : null;
-});
-otp.addEventListener("paste", () => {
-	validateOtp();
-	setTimeout(() => {
-		validateOtp();
-	}, 100);
-});
-
 // VALIDATE PIN CODE
 let pinFormSumit = false;
 const pinCode = document.getElementById("pinCode");
@@ -91,7 +64,10 @@ pinCodeForm.addEventListener("submit", (event) => {
 	pinFormSumit = true;
 	let pinIsValid = validatePin();
 	if (pinIsValid) {
-		const pinCodeCondition = pinCode.value == 712403 || pinCode.value == 712405;
+		const pinCodeCondition =
+			pinCode.value == 712403 ||
+			pinCode.value == 712405 ||
+			pinCode.value == 712424;
 		if (pinCodeCondition) {
 			console.log("pin is valid");
 			pinCode.classList.add("is-valid");
