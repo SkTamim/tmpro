@@ -163,6 +163,28 @@ body {
 	font-size: 90px;
 }
 
+/* FOOTER START  */
+.main-footer {
+	background-color: var(--color-black);
+	color: #fff;
+	position: absolute;
+}
+.main-footer a {
+	text-decoration: none;
+	color: #ff5757;
+	transition: 0.1s;
+}
+.main-footer a:hover {
+	text-decoration: none;
+	color: #eb4141;
+}
+.socials a {
+	font-size: 20px;
+	margin: 3px;
+	padding: 5px;
+}
+/* FOOTER END */
+
 /* UTILITIES */
 .color-second {
 	color: var(--color-secondary);
