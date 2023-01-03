@@ -54,15 +54,11 @@ function validatePin() {
 		pinCode.classList.remove("is-invalid");
 		pinIsValid = true;
 	}
+	validatePinCode(pinIsValid);
 	return pinIsValid;
 }
 
-const pinCodeForm = document.getElementById("pin-form");
-const checkPinBtn = document.getElementById("check-pin");
-pinCodeForm.addEventListener("submit", (event) => {
-	event.preventDefault();
-	pinFormSumit = true;
-	let pinIsValid = validatePin();
+function validatePinCode(pinIsValid) {
 	if (pinIsValid) {
 		const pinCodeCondition =
 			pinCode.value == 712403 ||
@@ -76,10 +72,23 @@ pinCodeForm.addEventListener("submit", (event) => {
 			checkPinBtn.innerText = "Continue to Buy";
 		} else {
 			pinCode.classList.add("is-invalid");
+			pinCode.classList.remove("is-valid");
+			checkPinBtn.classList.remove("green-btn");
+			checkPinBtn.classList.add("main-btn");
+			checkPinBtn.innerText = "Check availability";
 		}
 	} else {
-		console.error("pin in not valid");
+		console.log("pin in not valid");
 	}
+}
+
+const pinCodeForm = document.getElementById("pin-form");
+const checkPinBtn = document.getElementById("check-pin");
+pinCodeForm.addEventListener("submit", (event) => {
+	event.preventDefault();
+	pinFormSumit = true;
+	let pinIsValid = validatePin();
+	validatePinCode(pinIsValid);
 });
 
 pinCode.addEventListener("keydown", () => {
