@@ -185,6 +185,11 @@ body {
 }
 /* FOOTER END */
 
+/* wholesale BOX STYLE */
+.wholesale {
+	/* background-color: #0affeb; */
+}
+
 /* UTILITIES */
 .color-second {
 	color: var(--color-secondary);
